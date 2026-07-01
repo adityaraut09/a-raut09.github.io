@@ -5,6 +5,7 @@ import { Rocket } from './Icons.jsx'
 const links = [
   { to: '/', label: 'Home', end: true },
   { to: '/research', label: 'Research' },
+  { to: '/projects', label: 'Projects' },
   { to: '/awards', label: 'Awards' },
 ]
 
