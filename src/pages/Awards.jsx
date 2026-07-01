@@ -74,7 +74,7 @@ export default function Awards() {
             <div className="card">
               <h3>Interests</h3>
               <div className="chips">
-                <span className="chip">Chess</span><span className="chip">Cricket</span>
+                <span className="chip">Machine Learning</span><span className="chip">AI</span>
                 <span className="chip">Aerospace</span><span className="chip">Stock Investing</span>
               </div>
             </div>
