@@ -3,23 +3,31 @@ import { Page, Reveal, stagger, item } from '../components/Motion.jsx'
 
 const entries = [
   {
-    org: 'Purdue University', role: ' — Research Intern', date: 'Jun 2026 – Present',
+    org: 'Purdue University',
+    orgUrl: 'https://engineering.purdue.edu/CCE/People/ptProfile?resource_id=46402',
+    role: ' — Research Intern',
+    date: 'Jun 2026 – Present',
     meta: 'Concrete 3D Printing Team · Lyles School of Civil & Construction Eng. · West Lafayette, IN',
     body: [
-      <>Joined <strong>Dr. Pablo Zavattieri's</strong> group on 3D-printing sinusoidal Bouligand structures — layered patterns inspired by naturally tough materials such as mantis shrimp claws.</>,
+      <>Joined <a href="https://engineering.purdue.edu/CCE/People/ptProfile?resource_id=46402" target="_blank" rel="noopener noreferrer" style={{color: 'inherit', fontWeight: 600, textDecoration: 'none', borderBottom: '1px solid currentColor'}}>Dr. Pablo Zavattieri's</a> group on 3D-printing sinusoidal Bouligand structures — layered patterns inspired by naturally tough materials such as mantis shrimp claws.</>,
       <>Assist with calibrating the team's concrete 3D printer and support specimen printing for ongoing experimental research.</>,
     ],
   },
   {
-    org: 'Univ. of Tennessee at Chattanooga', role: ' — Research Intern', date: 'Jun 2026 – Present',
+    org: 'Univ. of Tennessee at Chattanooga',
+    orgUrl: 'https://blog.utc.edu/reetesh-ranjan/',
+    role: ' — Research Intern',
+    date: 'Jun 2026 – Present',
     meta: 'Combustion & Propulsion Research Group · Remote',
     body: [
-      <>Selected by <strong>Dr. Reetesh Ranjan</strong> after independently developing a thermodynamic comparison of rotating detonation engines.</>,
+      <>Selected by <a href="https://blog.utc.edu/reetesh-ranjan/" target="_blank" rel="noopener noreferrer" style={{color: 'inherit', fontWeight: 600, textDecoration: 'none', borderBottom: '1px solid currentColor'}}>Dr. Reetesh Ranjan</a> after independently developing a thermodynamic comparison of rotating detonation engines.</>,
       <>Working toward a <strong>joint publication</strong>, contributing thermodynamic cycle analysis of pressure-gain combustion to the group's broader RDE research.</>,
     ],
   },
   {
-    org: 'Independent Research', role: ' — RDE Propulsion', date: 'Sep 2025 – Present',
+    org: 'Independent Research',
+    role: ' — RDE Propulsion',
+    date: 'Sep 2025 – Present',
     meta: 'Self-Directed · Naperville, IL',
     body: [
       <>Researching the thermodynamic efficiency advantages of rotating detonation engines over conventional propulsion systems.</>,
@@ -44,7 +52,16 @@ export default function Research() {
         <motion.div variants={stagger} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.1 }}>
           {entries.map((e) => (
             <motion.div className="entry" key={e.org + e.role} variants={item}>
-              <p className="title"><span className="org">{e.org}</span>{e.role}</p>
+              <p className="title">
+                <span className="org">
+                  {e.orgUrl ? (
+                    <a href={e.orgUrl} target="_blank" rel="noopener noreferrer" style={{color: 'inherit', textDecoration: 'none', borderBottom: '1px solid currentColor'}}>
+                      {e.org}
+                    </a>
+                  ) : e.org}
+                </span>
+                {e.role}
+              </p>
               <span className="date">{e.date}</span>
               <p className="meta">{e.meta}</p>
               <div className="body">{e.body.map((p, i) => <p key={i}>{p}</p>)}</div>
